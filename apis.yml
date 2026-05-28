@@ -1,0 +1,32 @@
+aid: randomuser
+name: RandomUser
+description: "Generates and list user data"
+url: https://randomuser.me
+specificationVersion: '0.20'
+created: '2026-05-28'
+modified: '2026-05-28'
+x-source: public-apis/public-apis
+x-category: "Test Data"
+x-tier: 3
+x-tier-reason: bulk-registered-from-public-apis
+tags:
+  - Test Data
+  - Public APIs
+apis:
+  - name: RandomUser
+    description: "Generates and list user data"
+    humanURL: https://randomuser.me
+    baseURL: https://randomuser.me
+    tags:
+      - Test Data
+    properties:
+      - type: Documentation
+        url: https://randomuser.me
+common:
+  - type: Website
+    url: https://randomuser.me
+  - type: PublicAPIsListing
+    url: https://github.com/public-apis/public-apis
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
