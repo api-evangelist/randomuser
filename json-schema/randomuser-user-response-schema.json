@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://randomuser.me/schemas/user-response.json",
+  "title": "UserResponse",
+  "description": "Envelope returned by GET https://randomuser.me/api/",
+  "type": "object",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://randomuser.me/documentation",
+  "properties": {
+    "results": {
+      "type": "array",
+      "items": { "$ref": "https://randomuser.me/schemas/user.json" }
+    },
+    "info": {
+      "type": "object",
+      "properties": {
+        "seed": { "type": "string" },
+        "results": { "type": "integer" },
+        "page": { "type": "integer" },
+        "version": { "type": "string" }
+      },
+      "required": ["seed", "results", "page", "version"]
+    }
+  },
+  "required": ["results", "info"]
+}

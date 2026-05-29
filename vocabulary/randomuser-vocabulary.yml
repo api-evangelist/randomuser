@@ -1,0 +1,111 @@
+name: RandomUser Vocabulary
+description: |
+  Controlled vocabulary for the Random User Generator API. Captures the
+  request-shaping parameters, response entity, and operational characteristics
+  of randomuser.me as a single GET endpoint.
+url: https://randomuser.me/documentation
+version: "1.4"
+
+operations:
+  - name: generateUsers
+    method: GET
+    path: /
+    summary: Generate Random Users
+  - name: generateUsersVersioned
+    method: GET
+    path: /{version}/
+    summary: Generate Random Users (Pinned Version)
+
+entities:
+  - name: User
+    description: A single synthetic person record (name, location, contact, login, picture, id, dob, nat).
+  - name: UserResponse
+    description: Envelope wrapping a results array and an info block.
+  - name: Info
+    description: Metadata block describing the batch (seed, results, page, version).
+
+parameters:
+  - name: results
+    domain: Volume
+    description: Batch size, 1..5000.
+  - name: gender
+    domain: Demographics
+    description: Filter male / female.
+  - name: nat
+    domain: Locale
+    description: Comma-separated ISO alpha-2 nationality codes.
+  - name: inc
+    domain: Projection
+    description: Whitelist of top-level fields to include.
+  - name: exc
+    domain: Projection
+    description: Blacklist of top-level fields to exclude.
+  - name: seed
+    domain: Reproducibility
+    description: Deterministic seed string.
+  - name: page
+    domain: Pagination
+    description: 1-based page index, used with seed.
+  - name: format
+    domain: Serialization
+    description: json | pretty | csv | yaml | xml.
+  - name: password
+    domain: Credentials
+    description: Composition rules for the synthetic login.password.
+  - name: noinfo
+    domain: Envelope
+    description: Strip the info block.
+  - name: dl
+    domain: Transport
+    description: Trigger file download with correct extension.
+  - name: callback
+    domain: Transport
+    description: JSONP callback name (JSON formats only).
+
+dimensions:
+  capability: Synthetic user data generation
+  surface: Single GET endpoint, query-only
+  auth: None
+  cost: Free (donation-funded open source)
+  determinism: Seedable
+  serialization: json | pretty | csv | yaml | xml
+  paging: Seed-anchored, 1-based
+  versioning: Path-pinned (/1.0/.../1.4/) with rolling default
+
+nationalities_v14:
+  - AU
+  - BR
+  - CA
+  - CH
+  - DE
+  - DK
+  - ES
+  - FI
+  - FR
+  - GB
+  - IE
+  - IN
+  - IR
+  - MX
+  - NL
+  - "NO"
+  - NZ
+  - RS
+  - TR
+  - UA
+  - US
+
+versions:
+  - "1.0"
+  - "1.1"
+  - "1.2"
+  - "1.3"
+  - "1.4"
+
+tags:
+  - Test Data
+  - Synthetic Data
+  - Mock Data
+  - Open Source
+  - Public API
+  - Free API

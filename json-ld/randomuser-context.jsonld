@@ -1,0 +1,65 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "iana": "https://www.iana.org/assignments/media-types/",
+
+    "User": "schema:Person",
+    "results": {
+      "@id": "schema:itemListElement",
+      "@container": "@list"
+    },
+    "info": "schema:meta",
+
+    "gender": "schema:gender",
+    "name": "schema:name",
+    "title": "schema:honorificPrefix",
+    "first": "schema:givenName",
+    "last": "schema:familyName",
+
+    "email": "schema:email",
+    "phone": "schema:telephone",
+    "cell": "schema:telephone",
+
+    "location": "schema:address",
+    "street": "schema:streetAddress",
+    "city": "schema:addressLocality",
+    "state": "schema:addressRegion",
+    "country": "schema:addressCountry",
+    "postcode": "schema:postalCode",
+
+    "coordinates": "schema:geo",
+    "latitude": "schema:latitude",
+    "longitude": "schema:longitude",
+
+    "timezone": "schema:Schedule",
+    "offset": "schema:utcOffset",
+
+    "login": "schema:contactPoint",
+    "uuid": "schema:identifier",
+    "username": "foaf:nick",
+    "password": "schema:accessCode",
+
+    "dob": "schema:birthDate",
+    "registered": "schema:dateCreated",
+    "age": "schema:value",
+    "date": "schema:date",
+
+    "id": "schema:identifier",
+    "value": "schema:value",
+
+    "picture": "schema:image",
+    "large": "schema:contentUrl",
+    "medium": "schema:thumbnailUrl",
+    "thumbnail": "schema:thumbnailUrl",
+
+    "nat": "schema:nationality",
+
+    "seed": "schema:identifier",
+    "page": "schema:pageStart",
+    "version": "schema:schemaVersion"
+  }
+}

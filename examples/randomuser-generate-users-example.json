@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://randomuser.me/api/?results=2&nat=us,gb&inc=gender,name,email,nat&seed=apievangelist"
+  },
+  "response": {
+    "status": 200,
+    "headers": { "Content-Type": "application/json; charset=utf-8" },
+    "body": {
+      "results": [
+        {
+          "gender": "female",
+          "name": { "title": "Ms", "first": "Aubrey", "last": "Patterson" },
+          "email": "aubrey.patterson@example.com",
+          "nat": "US"
+        },
+        {
+          "gender": "male",
+          "name": { "title": "Mr", "first": "Oliver", "last": "Wright" },
+          "email": "oliver.wright@example.com",
+          "nat": "GB"
+        }
+      ],
+      "info": {
+        "seed": "apievangelist",
+        "results": 2,
+        "page": 1,
+        "version": "1.4"
+      }
+    }
+  }
+}

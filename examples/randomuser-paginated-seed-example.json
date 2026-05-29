@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://randomuser.me/api/?results=10&seed=apievangelist&page=3"
+  },
+  "response": {
+    "status": 200,
+    "headers": { "Content-Type": "application/json; charset=utf-8" },
+    "body": {
+      "results": "[ 10 user objects, deterministic for seed=apievangelist page=3 ]",
+      "info": {
+        "seed": "apievangelist",
+        "results": 10,
+        "page": 3,
+        "version": "1.4"
+      }
+    }
+  },
+  "notes": "Stable across calls when (seed, page, results, version) are held constant. Use to walk a reproducible dataset for tests."
+}

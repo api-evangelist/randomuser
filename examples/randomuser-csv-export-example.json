@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://randomuser.me/api/?results=25&nat=gb,us,es&format=csv&dl"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/csv",
+      "Content-Disposition": "attachment; filename=randomusers.csv"
+    },
+    "body_preview": "gender,name.title,name.first,name.last,location.city,...\nfemale,Ms,Aubrey,Patterson,Manchester,...\n..."
+  },
+  "notes": "Adding `dl` triggers a file download with the correct extension for the chosen `format`."
+}

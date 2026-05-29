@@ -1,32 +1,180 @@
 aid: randomuser
-name: RandomUser
-description: "Generates and list user data"
+name: Random User Generator
+description: >-
+  Free, open-source REST API that generates rich, realistic synthetic user
+  records (name, location, login, contact, picture, identification, nationality)
+  for application testing, prototyping, and demo content. Powered by the
+  open-source Randomuser.me-Node project under the MIT license and funded by
+  community donations. Single unauthenticated GET endpoint, seedable for
+  reproducibility, with multi-format output (JSON, PrettyJSON, CSV, YAML, XML).
 url: https://randomuser.me
+image: https://randomuser.me/img/logo.png
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-05-29'
 x-source: public-apis/public-apis
-x-category: "Test Data"
-x-tier: 3
-x-tier-reason: bulk-registered-from-public-apis
+x-category: Test Data
+x-type: opensource
+x-tier: 2
+x-tier-reason: enriched-full-pipeline
 tags:
   - Test Data
-  - Public APIs
+  - Synthetic Data
+  - Mock Data
+  - Open Source
+  - Public API
+  - Free API
 apis:
-  - name: RandomUser
-    description: "Generates and list user data"
+  - aid: randomuser:randomuser
+    name: Random User Generator API
+    description: >-
+      Single GET endpoint that returns a configurable batch of synthetic users.
+      Supports up to 5000 results per request, multi-nationality mixing, field
+      include/exclude projection, deterministic seeds with pagination, multiple
+      serialization formats, and path-pinned versioning (1.0 - 1.4).
     humanURL: https://randomuser.me
-    baseURL: https://randomuser.me
+    baseURL: https://randomuser.me/api
     tags:
       - Test Data
+      - Synthetic Data
     properties:
       - type: Documentation
-        url: https://randomuser.me
+        url: https://randomuser.me/documentation
+      - type: APIReference
+        url: https://randomuser.me/documentation
+      - type: OpenAPI
+        url: openapi/randomuser-openapi.yml
+      - type: JSONSchema
+        url: json-schema/randomuser-user-schema.json
+        title: User Schema
+      - type: JSONSchema
+        url: json-schema/randomuser-user-response-schema.json
+        title: User Response Schema
+      - type: JSONStructure
+        url: json-structure/randomuser-user-structure.json
+      - type: JSONLD
+        url: json-ld/randomuser-context.jsonld
+      - type: Example
+        url: examples/randomuser-generate-users-example.json
+        title: Generate Users
+      - type: Example
+        url: examples/randomuser-paginated-seed-example.json
+        title: Paginated Seeded Request
+      - type: Example
+        url: examples/randomuser-csv-export-example.json
+        title: CSV Export with Download Flag
+      - type: RateLimits
+        url: rate-limits/randomuser-rate-limits.yml
+      - type: Plans
+        url: plans/randomuser-plans-pricing.yml
+      - type: Authentication
+        url: https://randomuser.me/documentation
+        title: None (Public, Unauthenticated)
+      - type: Versioning
+        url: https://randomuser.me/documentation#versioning
+      - type: ChangeLog
+        url: https://randomuser.me/changelog
 common:
   - type: Website
     url: https://randomuser.me
+  - type: Documentation
+    url: https://randomuser.me/documentation
+  - type: ChangeLog
+    url: https://randomuser.me/changelog
+  - type: GitHubOrganization
+    url: https://github.com/RandomAPI
+  - type: GitHubRepository
+    url: https://github.com/RandomAPI/Randomuser.me-Node
+    title: Randomuser.me-Node (Canonical Source)
+  - type: GitHubRepository
+    url: https://github.com/RandomAPI/Offline-RandomAPI
+    title: Offline RandomAPI npm module
+  - type: GitHubRepository
+    url: https://github.com/RandomAPI/Randomuser.me-module
+    title: Offline User Generation Module
+  - type: X
+    url: https://twitter.com/randomapi
+  - type: Pricing
+    url: https://randomuser.me/#donate
+    title: Free (Donation-Funded)
+  - type: Support
+    url: https://github.com/RandomAPI/Randomuser.me-Node/issues
   - type: PublicAPIsListing
     url: https://github.com/public-apis/public-apis
+  - type: SpectralRules
+    url: rules/randomuser-rules.yml
+  - type: Vocabulary
+    url: vocabulary/randomuser-vocabulary.yml
+  - type: NaftikoCapability
+    url: capabilities/shared/randomuser-users.yaml
+    title: RandomUser Users (Shared)
+  - type: NaftikoCapability
+    url: capabilities/seed-test-fixtures.yaml
+    title: Generate Deterministic Test Fixtures
+  - type: NaftikoCapability
+    url: capabilities/multi-nationality-cohort.yaml
+    title: Build a Multi-Nationality User Cohort
+  - type: Tools
+    title: MCP Server (Community - pipeworx-io)
+    url: https://github.com/pipeworx-io/mcp-randomuser
+  - type: Tools
+    title: MCP Server (Community - hugo-85)
+    url: https://github.com/hugo-85/mcp-randomuserme
+  - type: Tools
+    title: MCP Server (Community - rycid)
+    url: https://github.com/rycid/randomuserMCP
+  - type: Features
+    data:
+      - name: Free and unauthenticated
+        description: No API key, no signup, no per-key quotas; just hit the endpoint.
+      - name: Seedable reproducibility
+        description: The same (seed, page, results, version) tuple always returns the same users.
+      - name: Multi-nationality cohort
+        description: Mix 21 nationalities (v1.4) so addresses, IDs, and phone formats stay locale-appropriate.
+      - name: Field projection
+        description: Use `inc` / `exc` to keep payloads small and skip CPU-heavy fields like `login`.
+      - name: Multi-format output
+        description: JSON, PrettyJSON, CSV, YAML, XML; plus JSONP via `callback`.
+      - name: Path-pinned versioning
+        description: Lock requests to /1.0/ through /1.4/ so upstream releases never break your fixtures.
+      - name: Pre-generated portrait images
+        description: Three resolutions (large, medium, thumbnail) hosted on randomuser.me.
+      - name: Open source
+        description: MIT-licensed Node.js codebase; self-hostable if you need air-gapped operation.
+  - type: UseCases
+    data:
+      - name: Frontend prototyping
+        description: Populate UI mockups, design comps, and Storybook fixtures with realistic users.
+      - name: Test data for QA / CI
+        description: Generate seeded fixtures for unit, integration, and snapshot tests.
+      - name: Load testing
+        description: Bulk-generate up to 5000 users per request to seed performance test runs.
+      - name: i18n / localization
+        description: Request specific nationalities to validate address parsing, phone formats, and Unicode rendering.
+      - name: Demo content
+        description: Populate sales demos, sandbox environments, and tutorials with realistic-looking accounts.
+      - name: Avatar placeholders
+        description: Use the picture URLs as throwaway avatars for prototyping.
+  - type: Integrations
+    data:
+      - name: jQuery / AJAX
+        description: Documented usage with $.ajax for browser-side fetches.
+      - name: Node.js
+        description: Use directly from server-side JavaScript; offline module available.
+      - name: Photoshop Extension
+        description: Pull synthetic users straight into design comps (legacy extension).
+      - name: Sketch Extension
+        description: Sketch plugin for filling layers with random users (legacy).
+      - name: Model Context Protocol
+        description: Multiple community MCP servers expose the API to LLM agents (pipeworx-io, hugo-85, rycid).
+  - type: Solutions
+    data:
+      - name: Hosted API
+        description: Free, public, donation-funded endpoint at randomuser.me/api.
+      - name: Offline npm module
+        description: Generate the same shape of users without network calls using the offline RandomAPI module.
+      - name: Self-hosted
+        description: Clone Randomuser.me-Node and run the generator inside your own infrastructure.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

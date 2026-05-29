@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/draft/2024-12/schema",
+  "title": "RandomUser User Structure",
+  "description": "JSON Structure decomposition of the User entity returned by the Random User Generator API. Each top-level field maps to a logical concern (identity, contact, address, credentials, demographics, media, locale).",
+  "type": "object",
+  "sections": [
+    {
+      "name": "Demographics",
+      "fields": ["gender", "dob", "nat"],
+      "purpose": "Describe the simulated person's gender, age, and nationality."
+    },
+    {
+      "name": "Identity",
+      "fields": ["name", "id"],
+      "purpose": "Personal name and a nationality-appropriate identifier (SSN, NINO, etc.)."
+    },
+    {
+      "name": "Contact",
+      "fields": ["email", "phone", "cell"],
+      "purpose": "Channels by which the user can be reached."
+    },
+    {
+      "name": "Address",
+      "fields": ["location"],
+      "purpose": "Street, city, state, postcode, geographic coordinates, and timezone."
+    },
+    {
+      "name": "Credentials",
+      "fields": ["login"],
+      "purpose": "Account credentials and hashed-password variants (uuid, username, password, salt, md5, sha1, sha256)."
+    },
+    {
+      "name": "Membership",
+      "fields": ["registered"],
+      "purpose": "When the user 'registered' for the synthetic system."
+    },
+    {
+      "name": "Media",
+      "fields": ["picture"],
+      "purpose": "Pre-generated portrait URLs at three resolutions."
+    }
+  ],
+  "cardinality": "A `UserResponse` envelope contains 1..5000 User objects in `results` plus an `info` block describing the seed/page/version of the batch.",
+  "stability": "Fields are stable across the v1.4 contract. Use the pinned-version endpoint `/api/1.4/` to lock the structure against future releases."
+}

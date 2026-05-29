@@ -1,0 +1,94 @@
+extends: [["spectral:oas", all]]
+
+documentationUrl: https://randomuser.me/documentation
+
+rules:
+  # The Random User Generator publishes one stable read operation; surface it
+  # as such and keep operationIds, summaries, and tags consistent.
+
+  randomuser-operation-id-camelcase:
+    description: Operation IDs MUST be camelCase (generateUsers, generateUsersVersioned).
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  randomuser-summary-title-case:
+    description: Operation summaries MUST be in Title Case.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-zA-Z0-9]*)( [A-Z][a-zA-Z0-9]*)*$"
+
+  randomuser-operation-must-have-tag:
+    description: Every operation MUST be tagged (Users for this API).
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: tags
+      function: truthy
+
+  randomuser-results-bounded:
+    description: The `results` query parameter MUST cap at 5000 to match the documented limit.
+    severity: error
+    given: $.paths[*].get.parameters[?(@.name=='results')].schema
+    then:
+      - field: maximum
+        function: truthy
+      - field: maximum
+        function: enumeration
+        functionOptions:
+          values: [5000]
+
+  randomuser-gender-enum:
+    description: The `gender` query parameter MUST enumerate male/female.
+    severity: warn
+    given: $.paths[*].get.parameters[?(@.name=='gender')].schema
+    then:
+      field: enum
+      function: truthy
+
+  randomuser-format-enum:
+    description: The `format` query parameter MUST enumerate the documented serializers.
+    severity: warn
+    given: $.paths[*].get.parameters[?(@.name=='format')].schema.enum
+    then:
+      function: enumeration
+      functionOptions:
+        values: [json, pretty, csv, yaml, xml]
+
+  randomuser-no-auth:
+    description: Random User Generator is unauthenticated; do NOT define securitySchemes.
+    severity: error
+    given: $.components.securitySchemes
+    then:
+      function: falsy
+
+  randomuser-server-https:
+    description: Servers MUST be HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  randomuser-user-schema-present:
+    description: Components MUST define a User schema (the canonical resource).
+    severity: error
+    given: $.components.schemas
+    then:
+      field: User
+      function: truthy
+
+  randomuser-microcks-extension:
+    description: Each operation SHOULD carry an x-microcks-operation block so it can mock cleanly.
+    severity: info
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: x-microcks-operation
+      function: truthy

@@ -1,0 +1,48 @@
+apiCommons: plans/0.1
+provider:
+  id: randomuser
+  name: Random User Generator
+  url: https://randomuser.me
+funding:
+  model: open-source-donations
+  description: |
+    No commercial plan, tier, or paid offering. Service is free at point of use
+    and funded by community donations.
+  donation:
+    url: https://randomuser.me/#donate
+plans:
+  - id: free
+    name: Free / Public
+    price:
+      amount: 0
+      currency: USD
+      period: ongoing
+    audience: All users
+    keyRequired: false
+    quotas:
+      requests:
+        documented: false
+        note: No published per-key or per-IP quota.
+      resultsPerRequest:
+        max: 5000
+    included:
+      - All endpoints (GET /, GET /{version}/)
+      - All formats (json, pretty, csv, yaml, xml)
+      - All nationalities (v1.4: 21 supported)
+      - Seeded reproducibility
+      - Field inc/exc projection
+      - JSONP callback
+    excluded: []
+    sla:
+      uptime: best-effort
+      support: community-only (GitHub issues, @randomapi on X/Twitter)
+support:
+  channels:
+    - type: GitHubIssues
+      url: https://github.com/RandomAPI/Randomuser.me-Node/issues
+    - type: SocialMedia
+      url: https://twitter.com/randomapi
+notes: |
+  Random User Generator is an open-source project (MIT, JavaScript / Node.js)
+  whose canonical source is github.com/RandomAPI/Randomuser.me-Node. It is
+  intentionally free and does not gate access behind keys, tiers, or billing.

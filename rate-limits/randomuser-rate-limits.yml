@@ -1,0 +1,38 @@
+apiCommons: rate-limits/0.1
+provider:
+  id: randomuser
+  name: Random User Generator
+  url: https://randomuser.me
+documented: false
+posture: best-effort
+summary: |
+  Random User Generator publishes no per-key, per-IP, or per-request rate cap.
+  The service is unauthenticated and free; the only hard-coded ceiling is the
+  per-request `results` parameter (max 5000 records per call).
+limits:
+  perRequest:
+    resultsMax: 5000
+    description: Hard cap on the number of generated user records returned by a single GET.
+  perKey:
+    documented: false
+    enforced: unknown
+  perIP:
+    documented: false
+    enforced: unknown
+    note: Operator may apply opaque abuse-prevention measures; not part of the public contract.
+  concurrency:
+    documented: false
+backoff:
+  documented: false
+  recommendation: |
+    Treat 5xx responses (or the `{error: "..."}` body) as transient; back off
+    exponentially and retry. Honor any Retry-After header if returned.
+fairUse:
+  guidance: |
+    Cache responses where possible. For large fixture sets, request once with
+    a seed and reuse the payload rather than polling. Open source the donation
+    page (https://randomuser.me/#donate) if you depend on the service in
+    production.
+source:
+  url: https://randomuser.me/documentation
+  retrieved: "2026-05-29"

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://randomuser.me/schemas/user.json",
+  "title": "User",
+  "description": "A single synthetic user record returned by the Random User Generator API.",
+  "type": "object",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://randomuser.me/documentation",
+  "properties": {
+    "gender": { "type": "string", "enum": ["male", "female"] },
+    "name": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "first": { "type": "string" },
+        "last": { "type": "string" }
+      },
+      "required": ["title", "first", "last"]
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "street": {
+          "type": "object",
+          "properties": {
+            "number": { "type": "integer" },
+            "name": { "type": "string" }
+          }
+        },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "country": { "type": "string" },
+        "postcode": { "type": ["string", "integer"] },
+        "coordinates": {
+          "type": "object",
+          "properties": {
+            "latitude": { "type": "string" },
+            "longitude": { "type": "string" }
+          }
+        },
+        "timezone": {
+          "type": "object",
+          "properties": {
+            "offset": { "type": "string" },
+            "description": { "type": "string" }
+          }
+        }
+      }
+    },
+    "email": { "type": "string", "format": "email" },
+    "login": {
+      "type": "object",
+      "properties": {
+        "uuid": { "type": "string", "format": "uuid" },
+        "username": { "type": "string" },
+        "password": { "type": "string" },
+        "salt": { "type": "string" },
+        "md5": { "type": "string" },
+        "sha1": { "type": "string" },
+        "sha256": { "type": "string" }
+      }
+    },
+    "dob": {
+      "type": "object",
+      "properties": {
+        "date": { "type": "string", "format": "date-time" },
+        "age": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "registered": {
+      "type": "object",
+      "properties": {
+        "date": { "type": "string", "format": "date-time" },
+        "age": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "phone": { "type": "string" },
+    "cell": { "type": "string" },
+    "id": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Identifier scheme (e.g. SSN, NINO). May be empty for some nationalities." },
+        "value": { "type": ["string", "null"] }
+      }
+    },
+    "picture": {
+      "type": "object",
+      "properties": {
+        "large": { "type": "string", "format": "uri" },
+        "medium": { "type": "string", "format": "uri" },
+        "thumbnail": { "type": "string", "format": "uri" }
+      }
+    },
+    "nat": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2 country code.",
+      "pattern": "^[A-Z]{2}$"
+    }
+  }
+}
