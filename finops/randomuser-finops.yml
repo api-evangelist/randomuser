@@ -1,0 +1,27 @@
+name: RandomUser.me FinOps
+description: RandomUser.me carries zero direct cost — the hosted API is entirely free with no metered billing, overage charges, or paid tiers. FinOps considerations are limited to indirect costs such as developer time and optional self-hosting infrastructure.
+url: https://randomuser.me/
+directCost:
+  monthly: 0
+  currency: USD
+  notes: No charges of any kind. No credit card, no account, no API key required.
+indirectCosts:
+  - type: Developer Time
+    notes: Minimal integration effort; no auth flow or key management needed.
+  - type: Self-Hosting (optional)
+    notes: >
+      Organizations requiring higher throughput, data residency, or offline use
+      can self-host the MIT-licensed Node.js + MongoDB stack from
+      https://github.com/RandomAPI/Randomuser.me-Node. Infrastructure costs
+      (compute, storage) apply only in that scenario.
+costOptimization:
+  - Use the seed parameter to cache and replay user datasets instead of making
+    repeated API calls during development.
+  - Use the inc parameter to request only the fields your application needs,
+    reducing payload size.
+  - For large-scale testing, generate data once and persist it locally rather
+    than hitting the live API repeatedly.
+riskFactors:
+  - Service continuity: hosted by a small open-source team; no SLA is offered.
+  - No formal uptime commitment; production workloads should not depend on the
+    live service.

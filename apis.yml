@@ -1,17 +1,14 @@
 aid: randomuser
 name: Random User Generator
 description: >-
-  Free, open-source REST API that generates rich, realistic synthetic user
-  records (name, location, login, contact, picture, identification, nationality)
-  for application testing, prototyping, and demo content. Powered by the
-  open-source Randomuser.me-Node project under the MIT license and funded by
-  community donations. Single unauthenticated GET endpoint, seedable for
-  reproducibility, with multi-format output (JSON, PrettyJSON, CSV, YAML, XML).
-url: https://randomuser.me
-image: https://randomuser.me/img/logo.png
-specificationVersion: '0.20'
-created: '2026-05-28'
-modified: '2026-05-29'
+  Free random user data API for generating realistic fake user profiles with names, addresses, photos, and contact
+  data for UI mockups and testing. Open-source REST API with no authentication required, seedable for reproducibility,
+  and multi-format output (JSON, CSV, YAML, XML).
+url: https://raw.githubusercontent.com/api-evangelist/randomuser/refs/heads/main/apis.yml
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+specificationVersion: '0.19'
+created: '2026-06-13'
+modified: '2026-06-13'
 x-source: public-apis/public-apis
 x-category: Test Data
 x-type: opensource
@@ -28,9 +25,8 @@ apis:
   - aid: randomuser:randomuser
     name: Random User Generator API
     description: >-
-      Single GET endpoint that returns a configurable batch of synthetic users.
-      Supports up to 5000 results per request, multi-nationality mixing, field
-      include/exclude projection, deterministic seeds with pagination, multiple
+      Single GET endpoint that returns a configurable batch of synthetic users. Supports up to 5000 results per request,
+      multi-nationality mixing, field include/exclude projection, deterministic seeds with pagination, multiple
       serialization formats, and path-pinned versioning (1.0 - 1.4).
     humanURL: https://randomuser.me
     baseURL: https://randomuser.me/api
@@ -81,48 +77,24 @@ common:
     url: https://randomuser.me/documentation
   - type: ChangeLog
     url: https://randomuser.me/changelog
-  - type: GitHubOrganization
+  - type: GitHubOrg
     url: https://github.com/RandomAPI
   - type: GitHubRepository
     url: https://github.com/RandomAPI/Randomuser.me-Node
     title: Randomuser.me-Node (Canonical Source)
-  - type: GitHubRepository
-    url: https://github.com/RandomAPI/Offline-RandomAPI
-    title: Offline RandomAPI npm module
-  - type: GitHubRepository
-    url: https://github.com/RandomAPI/Randomuser.me-module
-    title: Offline User Generation Module
   - type: X
     url: https://twitter.com/randomapi
   - type: Pricing
     url: https://randomuser.me/#donate
     title: Free (Donation-Funded)
+  - type: Plans
+    url: plans/randomuser-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/randomuser-rate-limits.yml
+  - type: FinOps
+    url: finops/randomuser-finops.yml
   - type: Support
     url: https://github.com/RandomAPI/Randomuser.me-Node/issues
-  - type: PublicAPIsListing
-    url: https://github.com/public-apis/public-apis
-  - type: SpectralRules
-    url: rules/randomuser-rules.yml
-  - type: Vocabulary
-    url: vocabulary/randomuser-vocabulary.yml
-  - type: NaftikoCapability
-    url: capabilities/shared/randomuser-users.yaml
-    title: RandomUser Users (Shared)
-  - type: NaftikoCapability
-    url: capabilities/seed-test-fixtures.yaml
-    title: Generate Deterministic Test Fixtures
-  - type: NaftikoCapability
-    url: capabilities/multi-nationality-cohort.yaml
-    title: Build a Multi-Nationality User Cohort
-  - type: Tools
-    title: MCP Server (Community - pipeworx-io)
-    url: https://github.com/pipeworx-io/mcp-randomuser
-  - type: Tools
-    title: MCP Server (Community - hugo-85)
-    url: https://github.com/hugo-85/mcp-randomuserme
-  - type: Tools
-    title: MCP Server (Community - rycid)
-    url: https://github.com/rycid/randomuserMCP
   - type: Features
     data:
       - name: Free and unauthenticated

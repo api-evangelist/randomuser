@@ -1,0 +1,194 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Random User Generator API",
+    "version": "1.4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Random Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://randomuser.me/api/",
+            "params": [
+              {
+                "name": "results",
+                "value": "10",
+                "type": "query",
+                "description": "Number of user records to generate. Maximum 5000 per request."
+              },
+              {
+                "name": "gender",
+                "value": "female",
+                "type": "query",
+                "description": "Restrict to a single gender. Omit or use any other value to return both."
+              },
+              {
+                "name": "nat",
+                "value": "us,gb,fr",
+                "type": "query",
+                "description": "Comma-separated list of two-letter nationality codes. Supported (v1.4):\nAU, BR, CA, CH, DE, DK, ES, FI, FR, GB, IE, IN, IR, MX, NL, NO, NZ,\nRS, TR, UA, US. Omit for a mix of all nationalities.\n"
+              },
+              {
+                "name": "inc",
+                "value": "name,email,nat",
+                "type": "query",
+                "description": "Comma-separated list of top-level fields to include. Allowed values:\ngender, name, location, email, login, registered, dob, phone, cell,\nid, picture, nat. Mutually exclusive with `exc`.\n"
+              },
+              {
+                "name": "exc",
+                "value": "login",
+                "type": "query",
+                "description": "Comma-separated list of top-level fields to exclude. Allowed values\nsame as `inc`. Mutually exclusive with `inc`.\n"
+              },
+              {
+                "name": "seed",
+                "value": "foobar",
+                "type": "query",
+                "description": "Deterministic seed. The same seed (with the same page, results, and\nversion) always returns the same users.\n"
+              },
+              {
+                "name": "page",
+                "value": "3",
+                "type": "query",
+                "description": "Page number (1-based) for paginated seeded results. Use with `seed`\nand a fixed `results` value to walk a stable dataset.\n"
+              },
+              {
+                "name": "format",
+                "value": "csv",
+                "type": "query",
+                "description": "Response serialization format. Defaults to JSON.\n"
+              },
+              {
+                "name": "password",
+                "value": "upper,lower,number,8-16",
+                "type": "query",
+                "description": "Password composition rules: `CHARSETS,MIN-MAX` or `CHARSETS,MAX`.\nCharsets: special, upper, lower, number (comma-separated, in any order).\nDefault: ~10k top-used passwords; otherwise 8-64 characters.\n"
+              },
+              {
+                "name": "dl",
+                "value": "",
+                "type": "query",
+                "description": "If present, returns the response as a file download with the\nappropriate extension for the requested `format`.\n"
+              },
+              {
+                "name": "noinfo",
+                "value": "",
+                "type": "query",
+                "description": "If present, omits the `info` envelope (seed, results, page, version)\nfrom the response.\n"
+              },
+              {
+                "name": "callback",
+                "value": "randomuserdata",
+                "type": "query",
+                "description": "JSONP callback function name. Only honored for JSON formats.\n"
+              }
+            ]
+          },
+          "docs": "Generate one or more random user records. Supports controlling result count,\ngender, nationality mix, included/excluded fields, password composition,\nformat (JSON/CSV/YAML/XML/PrettyJSON), seeded reproducibility, and pagination.\n"
+        },
+        {
+          "info": {
+            "name": "Generate Random Users (Pinned Version)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://randomuser.me/api/:version/",
+            "params": [
+              {
+                "name": "version",
+                "value": "1.4",
+                "type": "path",
+                "description": "API version to pin (e.g. `1.4`)."
+              },
+              {
+                "name": "results",
+                "value": "10",
+                "type": "query",
+                "description": "Number of user records to generate. Maximum 5000 per request."
+              },
+              {
+                "name": "gender",
+                "value": "female",
+                "type": "query",
+                "description": "Restrict to a single gender. Omit or use any other value to return both."
+              },
+              {
+                "name": "nat",
+                "value": "us,gb,fr",
+                "type": "query",
+                "description": "Comma-separated list of two-letter nationality codes. Supported (v1.4):\nAU, BR, CA, CH, DE, DK, ES, FI, FR, GB, IE, IN, IR, MX, NL, NO, NZ,\nRS, TR, UA, US. Omit for a mix of all nationalities.\n"
+              },
+              {
+                "name": "inc",
+                "value": "name,email,nat",
+                "type": "query",
+                "description": "Comma-separated list of top-level fields to include. Allowed values:\ngender, name, location, email, login, registered, dob, phone, cell,\nid, picture, nat. Mutually exclusive with `exc`.\n"
+              },
+              {
+                "name": "exc",
+                "value": "login",
+                "type": "query",
+                "description": "Comma-separated list of top-level fields to exclude. Allowed values\nsame as `inc`. Mutually exclusive with `inc`.\n"
+              },
+              {
+                "name": "seed",
+                "value": "foobar",
+                "type": "query",
+                "description": "Deterministic seed. The same seed (with the same page, results, and\nversion) always returns the same users.\n"
+              },
+              {
+                "name": "page",
+                "value": "3",
+                "type": "query",
+                "description": "Page number (1-based) for paginated seeded results. Use with `seed`\nand a fixed `results` value to walk a stable dataset.\n"
+              },
+              {
+                "name": "format",
+                "value": "csv",
+                "type": "query",
+                "description": "Response serialization format. Defaults to JSON.\n"
+              },
+              {
+                "name": "password",
+                "value": "upper,lower,number,8-16",
+                "type": "query",
+                "description": "Password composition rules: `CHARSETS,MIN-MAX` or `CHARSETS,MAX`.\nCharsets: special, upper, lower, number (comma-separated, in any order).\nDefault: ~10k top-used passwords; otherwise 8-64 characters.\n"
+              },
+              {
+                "name": "dl",
+                "value": "",
+                "type": "query",
+                "description": "If present, returns the response as a file download with the\nappropriate extension for the requested `format`.\n"
+              },
+              {
+                "name": "noinfo",
+                "value": "",
+                "type": "query",
+                "description": "If present, omits the `info` envelope (seed, results, page, version)\nfrom the response.\n"
+              },
+              {
+                "name": "callback",
+                "value": "randomuserdata",
+                "type": "query",
+                "description": "JSONP callback function name. Only honored for JSON formats.\n"
+              }
+            ]
+          },
+          "docs": "Same as `generateUsers` but pinned to a specific API version so future\nreleases cannot break the response shape. Supported versions: 1.0, 1.1,\n1.2, 1.3, 1.4.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
