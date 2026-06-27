@@ -50,13 +50,13 @@ apis:
         url: json-structure/randomuser-user-structure.json
       - type: JSONLD
         url: json-ld/randomuser-context.jsonld
-      - type: Example
+      - type: Examples
         url: examples/randomuser-generate-users-example.json
         title: Generate Users
-      - type: Example
+      - type: Examples
         url: examples/randomuser-paginated-seed-example.json
         title: Paginated Seeded Request
-      - type: Example
+      - type: Examples
         url: examples/randomuser-csv-export-example.json
         title: CSV Export with Download Flag
       - type: RateLimits
