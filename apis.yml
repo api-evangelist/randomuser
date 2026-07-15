@@ -71,6 +71,8 @@ apis:
       - type: ChangeLog
         url: https://randomuser.me/changelog
 common:
+  - type: AgenticAccess
+    url: agentic-access/randomuser-agentic-access.yml
   - type: DomainSecurity
     url: security/randomuser-domain-security.yml
   - type: Website
