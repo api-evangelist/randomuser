@@ -5,7 +5,19 @@ description: >-
   data for UI mockups and testing. Open-source REST API with no authentication required, seedable for reproducibility,
   and multi-format output (JSON, CSV, YAML, XML).
 url: https://raw.githubusercontent.com/api-evangelist/randomuser/refs/heads/main/apis.yml
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/randomuser.png
 specificationVersion: '0.19'
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -22,54 +34,44 @@ tags:
   - Public API
   - Free API
 apis:
-  - aid: randomuser:randomuser
-    name: Random User Generator API
-    description: >-
-      Single GET endpoint that returns a configurable batch of synthetic users. Supports up to 5000 results per request,
-      multi-nationality mixing, field include/exclude projection, deterministic seeds with pagination, multiple
-      serialization formats, and path-pinned versioning (1.0 - 1.4).
-    humanURL: https://randomuser.me
-    baseURL: https://randomuser.me/api
-    tags:
-      - Test Data
-      - Synthetic Data
-    properties:
-      - type: Documentation
-        url: https://randomuser.me/documentation
-      - type: APIReference
-        url: https://randomuser.me/documentation
-      - type: OpenAPI
-        url: openapi/randomuser-openapi.yml
-      - type: JSONSchema
-        url: json-schema/randomuser-user-schema.json
-        title: User Schema
-      - type: JSONSchema
-        url: json-schema/randomuser-user-response-schema.json
-        title: User Response Schema
-      - type: JSONStructure
-        url: json-structure/randomuser-user-structure.json
-      - type: JSONLD
-        url: json-ld/randomuser-context.jsonld
-      - type: Examples
-        url: examples/randomuser-generate-users-example.json
-        title: Generate Users
-      - type: Examples
-        url: examples/randomuser-paginated-seed-example.json
-        title: Paginated Seeded Request
-      - type: Examples
-        url: examples/randomuser-csv-export-example.json
-        title: CSV Export with Download Flag
-      - type: RateLimits
-        url: rate-limits/randomuser-rate-limits.yml
-      - type: Plans
-        url: plans/randomuser-plans-pricing.yml
-      - type: Authentication
-        url: https://randomuser.me/documentation
-        title: None (Public, Unauthenticated)
-      - type: Versioning
-        url: https://randomuser.me/documentation#versioning
-      - type: ChangeLog
-        url: https://randomuser.me/changelog
+- aid: randomuser:randomuser-users-api
+  name: Random User Generator Users API
+  description: Generate one or more synthetic user records.
+  humanURL: https://randomuser.me
+  baseURL: https://randomuser.me/api
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/randomuser-users-api-openapi.yml
+  - type: Documentation
+    url: https://randomuser.me/documentation
+  - type: APIReference
+    url: https://randomuser.me/documentation
+  - type: JSONSchema
+    url: json-schema/randomuser-user-schema.json
+  - type: JSONSchema
+    url: json-schema/randomuser-user-response-schema.json
+  - type: JSONStructure
+    url: json-structure/randomuser-user-structure.json
+  - type: JSONLD
+    url: json-ld/randomuser-context.jsonld
+  - type: Examples
+    url: examples/randomuser-generate-users-example.json
+  - type: Examples
+    url: examples/randomuser-paginated-seed-example.json
+  - type: Examples
+    url: examples/randomuser-csv-export-example.json
+  - type: RateLimits
+    url: rate-limits/randomuser-rate-limits.yml
+  - type: Plans
+    url: plans/randomuser-plans-pricing.yml
+  - type: Authentication
+    url: https://randomuser.me/documentation
+  - type: Versioning
+    url: https://randomuser.me/documentation#versioning
+  - type: ChangeLog
+    url: https://randomuser.me/changelog
 common:
   - type: AgenticAccess
     url: agentic-access/randomuser-agentic-access.yml
