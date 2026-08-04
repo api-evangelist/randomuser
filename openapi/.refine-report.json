@@ -1,0 +1,14 @@
+{
+  "provider": "randomuser",
+  "sources": [
+    "randomuser-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "randomuser-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
