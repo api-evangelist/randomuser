@@ -73,6 +73,9 @@ apis:
   - type: ChangeLog
     url: https://randomuser.me/changelog
 common:
+  - type: License
+    name: MIT
+    url: https://github.com/RandomAPI/Randomuser.me-Node/blob/master/LICENSE
   - type: AgenticAccess
     url: agentic-access/randomuser-agentic-access.yml
   - type: DomainSecurity
