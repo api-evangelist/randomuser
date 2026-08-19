@@ -18,7 +18,7 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/randomuser.png
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 created: '2026-06-13'
 modified: '2026-06-13'
 x-source: public-apis/public-apis
