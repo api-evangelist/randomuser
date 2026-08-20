@@ -30,6 +30,13 @@ tags:
   - Test Data
   - Synthetic Data
   - Mock Data
+  - Open-Source
+  - Public API
+  - Free API
+tags_raw:
+  - Test Data
+  - Synthetic Data
+  - Mock Data
   - Open Source
   - Public API
   - Free API
@@ -40,6 +47,8 @@ apis:
   humanURL: https://randomuser.me
   baseURL: https://randomuser.me/api
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
