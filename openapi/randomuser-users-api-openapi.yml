@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Random User Generator Users API
   description: 'Free, open-source REST API that generates random user data for application testing,
@@ -318,6 +318,52 @@ components:
           type: string
           description: ISO 3166-1 alpha-2 country code for the user's nationality.
           example: US
+    Id:
+      type: object
+      properties:
+        name:
+          type: string
+          example: SSN
+          description: Identifier scheme (varies by nationality; may be empty).
+        value:
+          type:
+          - string
+          - 'null'
+          example: 405-88-3636
+    Info:
+      type: object
+      description: Metadata about the generated batch.
+      properties:
+        seed:
+          type: string
+          example: 56d27f4a53bd5441
+        results:
+          type: integer
+          example: 1
+        page:
+          type: integer
+          example: 1
+        version:
+          type: string
+          example: '1.4'
+      required:
+      - seed
+      - results
+      - page
+      - version
+    UserResponse:
+      type: object
+      description: Standard envelope returned by the generator.
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        info:
+          $ref: '#/components/schemas/Info'
+      required:
+      - results
+      - info
     Name:
       type: object
       properties:
@@ -345,19 +391,6 @@ components:
           type: string
           format: uri
           example: https://randomuser.me/api/portraits/thumb/men/75.jpg
-    UserResponse:
-      type: object
-      description: Standard envelope returned by the generator.
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-        info:
-          $ref: '#/components/schemas/Info'
-      required:
-      - results
-      - info
     Location:
       type: object
       properties:
@@ -402,6 +435,16 @@ components:
             description:
               type: string
               example: Adelaide, Darwin
+    DateWithAge:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          example: 1992-03-08 15:13:16.688000+00:00
+        age:
+          type: integer
+          example: 30
     Login:
       type: object
       properties:
@@ -435,45 +478,3 @@ components:
           example: Uh oh, something has gone wrong. Please tweet us @randomapi about the issue. Thank you.
       required:
       - error
-    DateWithAge:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date-time
-          example: 1992-03-08 15:13:16.688000+00:00
-        age:
-          type: integer
-          example: 30
-    Id:
-      type: object
-      properties:
-        name:
-          type: string
-          example: SSN
-          description: Identifier scheme (varies by nationality; may be empty).
-        value:
-          type: string
-          nullable: true
-          example: 405-88-3636
-    Info:
-      type: object
-      description: Metadata about the generated batch.
-      properties:
-        seed:
-          type: string
-          example: 56d27f4a53bd5441
-        results:
-          type: integer
-          example: 1
-        page:
-          type: integer
-          example: 1
-        version:
-          type: string
-          example: '1.4'
-      required:
-      - seed
-      - results
-      - page
-      - version
