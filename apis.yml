@@ -5,6 +5,20 @@ description: >-
   data for UI mockups and testing. Open-source REST API with no authentication required, seedable for reproducibility,
   and multi-format output (JSON, CSV, YAML, XML).
 url: https://raw.githubusercontent.com/api-evangelist/randomuser/refs/heads/main/apis.yml
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: true
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: open
@@ -82,6 +96,8 @@ apis:
   - type: ChangeLog
     url: https://randomuser.me/changelog
 common:
+  - type: Releases
+    url: https://github.com/RandomAPI/Randomuser.me-Node/releases
   - type: License
     name: MIT
     url: https://github.com/RandomAPI/Randomuser.me-Node/blob/master/LICENSE
