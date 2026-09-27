@@ -44,7 +44,7 @@ tags:
   - Test Data
   - Synthetic Data
   - Mock Data
-  - Open-Source
+  - Open Source
   - Public APIs
   - Free API
 tags_raw:
@@ -54,6 +54,7 @@ tags_raw:
   - Open Source
   - Public API
   - Free API
+  - Open-Source
 apis:
 - aid: randomuser:randomuser-users-api
   name: Random User Generator Users API

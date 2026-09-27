@@ -282,56 +282,21 @@ components:
           example: Uh oh, something has gone wrong. Please tweet us @randomapi about the issue. Thank you.
       required:
       - error
-    Id:
+    Picture:
       type: object
       properties:
-        name:
+        large:
           type: string
-          example: SSN
-          description: Identifier scheme (varies by nationality; may be empty).
-        value:
-          type:
-          - string
-          - 'null'
-          example: 405-88-3636
-    User:
-      type: object
-      description: A single synthetic user record.
-      properties:
-        gender:
+          format: uri
+          example: https://randomuser.me/api/portraits/men/75.jpg
+        medium:
           type: string
-          enum:
-          - male
-          - female
-          example: female
-        name:
-          $ref: '#/components/schemas/Name'
-        location:
-          $ref: '#/components/schemas/Location'
-        email:
+          format: uri
+          example: https://randomuser.me/api/portraits/med/men/75.jpg
+        thumbnail:
           type: string
-          format: email
-          example: jennie.nichols@example.com
-        login:
-          $ref: '#/components/schemas/Login'
-        dob:
-          $ref: '#/components/schemas/DateWithAge'
-        registered:
-          $ref: '#/components/schemas/DateWithAge'
-        phone:
-          type: string
-          example: (272) 790-0888
-        cell:
-          type: string
-          example: (489) 330-2385
-        id:
-          $ref: '#/components/schemas/Id'
-        picture:
-          $ref: '#/components/schemas/Picture'
-        nat:
-          type: string
-          description: ISO 3166-1 alpha-2 country code for the user's nationality.
-          example: US
+          format: uri
+          example: https://randomuser.me/api/portraits/thumb/men/75.jpg
     Login:
       type: object
       properties:
@@ -357,21 +322,18 @@ components:
         sha256:
           type: string
           example: 48df5229235ada28389b91e60a935e4f9b73eb4bdb855ef9258a1751f10bdc5d
-    Picture:
+    Name:
       type: object
       properties:
-        large:
+        title:
           type: string
-          format: uri
-          example: https://randomuser.me/api/portraits/men/75.jpg
-        medium:
+          example: Miss
+        first:
           type: string
-          format: uri
-          example: https://randomuser.me/api/portraits/med/men/75.jpg
-        thumbnail:
+          example: Jennie
+        last:
           type: string
-          format: uri
-          example: https://randomuser.me/api/portraits/thumb/men/75.jpg
+          example: Nichols
     Info:
       type: object
       description: Metadata about the generated batch.
@@ -393,19 +355,6 @@ components:
       - results
       - page
       - version
-    UserResponse:
-      type: object
-      description: Standard envelope returned by the generator.
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-        info:
-          $ref: '#/components/schemas/Info'
-      required:
-      - results
-      - info
     Location:
       type: object
       properties:
@@ -450,18 +399,6 @@ components:
             description:
               type: string
               example: Adelaide, Darwin
-    Name:
-      type: object
-      properties:
-        title:
-          type: string
-          example: Miss
-        first:
-          type: string
-          example: Jennie
-        last:
-          type: string
-          example: Nichols
     DateWithAge:
       type: object
       properties:
@@ -472,3 +409,66 @@ components:
         age:
           type: integer
           example: 30
+    UserResponse:
+      type: object
+      description: Standard envelope returned by the generator.
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        info:
+          $ref: '#/components/schemas/Info'
+      required:
+      - results
+      - info
+    User:
+      type: object
+      description: A single synthetic user record.
+      properties:
+        gender:
+          type: string
+          enum:
+          - male
+          - female
+          example: female
+        name:
+          $ref: '#/components/schemas/Name'
+        location:
+          $ref: '#/components/schemas/Location'
+        email:
+          type: string
+          format: email
+          example: jennie.nichols@example.com
+        login:
+          $ref: '#/components/schemas/Login'
+        dob:
+          $ref: '#/components/schemas/DateWithAge'
+        registered:
+          $ref: '#/components/schemas/DateWithAge'
+        phone:
+          type: string
+          example: (272) 790-0888
+        cell:
+          type: string
+          example: (489) 330-2385
+        id:
+          $ref: '#/components/schemas/Id'
+        picture:
+          $ref: '#/components/schemas/Picture'
+        nat:
+          type: string
+          description: ISO 3166-1 alpha-2 country code for the user's nationality.
+          example: US
+    Id:
+      type: object
+      properties:
+        name:
+          type: string
+          example: SSN
+          description: Identifier scheme (varies by nationality; may be empty).
+        value:
+          type:
+          - string
+          - 'null'
+          example: 405-88-3636
