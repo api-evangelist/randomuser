@@ -274,14 +274,19 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Error:
+    UserResponse:
       type: object
+      description: Standard envelope returned by the generator.
       properties:
-        error:
-          type: string
-          example: Uh oh, something has gone wrong. Please tweet us @randomapi about the issue. Thank you.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        info:
+          $ref: '#/components/schemas/Info'
       required:
-      - error
+      - results
+      - info
     Picture:
       type: object
       properties:
@@ -322,6 +327,16 @@ components:
         sha256:
           type: string
           example: 48df5229235ada28389b91e60a935e4f9b73eb4bdb855ef9258a1751f10bdc5d
+    DateWithAge:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          example: 1992-03-08 15:13:16.688000+00:00
+        age:
+          type: integer
+          example: 30
     Name:
       type: object
       properties:
@@ -334,6 +349,18 @@ components:
         last:
           type: string
           example: Nichols
+    Id:
+      type: object
+      properties:
+        name:
+          type: string
+          example: SSN
+          description: Identifier scheme (varies by nationality; may be empty).
+        value:
+          type:
+          - string
+          - 'null'
+          example: 405-88-3636
     Info:
       type: object
       description: Metadata about the generated batch.
@@ -355,6 +382,44 @@ components:
       - results
       - page
       - version
+    User:
+      type: object
+      description: A single synthetic user record.
+      properties:
+        gender:
+          type: string
+          enum:
+          - male
+          - female
+          example: female
+        name:
+          $ref: '#/components/schemas/Name'
+        location:
+          $ref: '#/components/schemas/Location'
+        email:
+          type: string
+          format: email
+          example: jennie.nichols@example.com
+        login:
+          $ref: '#/components/schemas/Login'
+        dob:
+          $ref: '#/components/schemas/DateWithAge'
+        registered:
+          $ref: '#/components/schemas/DateWithAge'
+        phone:
+          type: string
+          example: (272) 790-0888
+        cell:
+          type: string
+          example: (489) 330-2385
+        id:
+          $ref: '#/components/schemas/Id'
+        picture:
+          $ref: '#/components/schemas/Picture'
+        nat:
+          type: string
+          description: ISO 3166-1 alpha-2 country code for the user's nationality.
+          example: US
     Location:
       type: object
       properties:
@@ -399,76 +464,11 @@ components:
             description:
               type: string
               example: Adelaide, Darwin
-    DateWithAge:
+    Error:
       type: object
       properties:
-        date:
+        error:
           type: string
-          format: date-time
-          example: 1992-03-08 15:13:16.688000+00:00
-        age:
-          type: integer
-          example: 30
-    UserResponse:
-      type: object
-      description: Standard envelope returned by the generator.
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-        info:
-          $ref: '#/components/schemas/Info'
+          example: Uh oh, something has gone wrong. Please tweet us @randomapi about the issue. Thank you.
       required:
-      - results
-      - info
-    User:
-      type: object
-      description: A single synthetic user record.
-      properties:
-        gender:
-          type: string
-          enum:
-          - male
-          - female
-          example: female
-        name:
-          $ref: '#/components/schemas/Name'
-        location:
-          $ref: '#/components/schemas/Location'
-        email:
-          type: string
-          format: email
-          example: jennie.nichols@example.com
-        login:
-          $ref: '#/components/schemas/Login'
-        dob:
-          $ref: '#/components/schemas/DateWithAge'
-        registered:
-          $ref: '#/components/schemas/DateWithAge'
-        phone:
-          type: string
-          example: (272) 790-0888
-        cell:
-          type: string
-          example: (489) 330-2385
-        id:
-          $ref: '#/components/schemas/Id'
-        picture:
-          $ref: '#/components/schemas/Picture'
-        nat:
-          type: string
-          description: ISO 3166-1 alpha-2 country code for the user's nationality.
-          example: US
-    Id:
-      type: object
-      properties:
-        name:
-          type: string
-          example: SSN
-          description: Identifier scheme (varies by nationality; may be empty).
-        value:
-          type:
-          - string
-          - 'null'
-          example: 405-88-3636
+      - error
