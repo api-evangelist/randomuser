@@ -274,81 +274,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    UserResponse:
-      type: object
-      description: Standard envelope returned by the generator.
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-        info:
-          $ref: '#/components/schemas/Info'
-      required:
-      - results
-      - info
-    Picture:
-      type: object
-      properties:
-        large:
-          type: string
-          format: uri
-          example: https://randomuser.me/api/portraits/men/75.jpg
-        medium:
-          type: string
-          format: uri
-          example: https://randomuser.me/api/portraits/med/men/75.jpg
-        thumbnail:
-          type: string
-          format: uri
-          example: https://randomuser.me/api/portraits/thumb/men/75.jpg
-    Login:
-      type: object
-      properties:
-        uuid:
-          type: string
-          format: uuid
-          example: 7a0eed16-9430-4d68-901f-c0d4c1c3bf00
-        username:
-          type: string
-          example: yellowpeacock117
-        password:
-          type: string
-          example: addison
-        salt:
-          type: string
-          example: sld1yGtd
-        md5:
-          type: string
-          example: ab54ac4c0be9480ae8fa5e9e2a5196a3
-        sha1:
-          type: string
-          example: edcf2ce613cbdea349133c52dc2f3b83168dc51b
-        sha256:
-          type: string
-          example: 48df5229235ada28389b91e60a935e4f9b73eb4bdb855ef9258a1751f10bdc5d
-    DateWithAge:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date-time
-          example: 1992-03-08 15:13:16.688000+00:00
-        age:
-          type: integer
-          example: 30
-    Name:
-      type: object
-      properties:
-        title:
-          type: string
-          example: Miss
-        first:
-          type: string
-          example: Jennie
-        last:
-          type: string
-          example: Nichols
     Id:
       type: object
       properties:
@@ -382,6 +307,53 @@ components:
       - results
       - page
       - version
+    DateWithAge:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          example: 1992-03-08 15:13:16.688000+00:00
+        age:
+          type: integer
+          example: 30
+    Name:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Miss
+        first:
+          type: string
+          example: Jennie
+        last:
+          type: string
+          example: Nichols
+    Login:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          example: 7a0eed16-9430-4d68-901f-c0d4c1c3bf00
+        username:
+          type: string
+          example: yellowpeacock117
+        password:
+          type: string
+          example: addison
+        salt:
+          type: string
+          example: sld1yGtd
+        md5:
+          type: string
+          example: ab54ac4c0be9480ae8fa5e9e2a5196a3
+        sha1:
+          type: string
+          example: edcf2ce613cbdea349133c52dc2f3b83168dc51b
+        sha256:
+          type: string
+          example: 48df5229235ada28389b91e60a935e4f9b73eb4bdb855ef9258a1751f10bdc5d
     User:
       type: object
       description: A single synthetic user record.
@@ -420,6 +392,21 @@ components:
           type: string
           description: ISO 3166-1 alpha-2 country code for the user's nationality.
           example: US
+    Picture:
+      type: object
+      properties:
+        large:
+          type: string
+          format: uri
+          example: https://randomuser.me/api/portraits/men/75.jpg
+        medium:
+          type: string
+          format: uri
+          example: https://randomuser.me/api/portraits/med/men/75.jpg
+        thumbnail:
+          type: string
+          format: uri
+          example: https://randomuser.me/api/portraits/thumb/men/75.jpg
     Location:
       type: object
       properties:
@@ -464,6 +451,19 @@ components:
             description:
               type: string
               example: Adelaide, Darwin
+    UserResponse:
+      type: object
+      description: Standard envelope returned by the generator.
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        info:
+          $ref: '#/components/schemas/Info'
+      required:
+      - results
+      - info
     Error:
       type: object
       properties:
