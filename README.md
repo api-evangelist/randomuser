@@ -1,4 +1,4 @@
-# Random User Generator (randomuser)
+# Random User Generator
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,82 +64,158 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Free, open-source REST API that generates rich, realistic synthetic user records (name, location, login, contact, picture, identification, nationality) for application testing, prototyping, and demo content. Powered by the open-source Randomuser.me-Node project under the MIT license and funded by community donations. Single unauthenticated GET endpoint, seedable for reproducibility, with multi-format output (JSON, PrettyJSON, CSV, YAML, XML).
+Free random user data API for generating realistic fake user profiles with names, addresses, photos, and contact data for UI mockups and testing. Open-source REST API with no authentication required, seedable for reproducibility, and multi-format output (JSON, CSV, YAML, XML).
 
-**APIs.json:** [https://randomuser.me](https://randomuser.me)
+**Areas:** Test Data · Synthetic Data · Mock Data · Open Source · Public APIs · Free API
 
-## Tags
+## Random User Generator on APIs.io
 
-- Test Data
-- Synthetic Data
-- Mock Data
-- Open Source
-- Public API
-- Free API
+Everything profiled for Random User Generator is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/randomuser/](https://apis.io/providers/randomuser/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (1)
 
-- **Created:** 2026-05-28
-- **Modified:** 2026-05-29
+- [Random User Generator Users API](https://apis.io/apis/randomuser/randomuser-users-api/) — Generate one or more synthetic user records.
 
-## APIs
+### Published properties
 
-### Random User Generator API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Single GET endpoint that returns a configurable batch of synthetic users. Supports up to 5000 results per request, multi-nationality mixing, field include/exclude projection, deterministic seeds with pagination, multiple serialization formats, and path-pinned versioning (1.0 - 1.4).
+#### Agentic access (1)
 
-- **Human URL:** [https://randomuser.me](https://randomuser.me)
-- **Base URL:** `https://randomuser.me/api`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Randomuser Agentic Access](https://apis.io/agentic-access/randomuser/randomuser-agentic-access/)
 
-- Test Data
-- Synthetic Data
+#### JSON Schema (2)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://randomuser.me/documentation)
-- [API Reference](https://randomuser.me/documentation)
-- [OpenAPI](openapi/randomuser-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/randomuser.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/randomuser.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/randomuser-user-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/randomuser-user-response-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/randomuser-user-structure.json)
-- [JSON-LD](json-ld/randomuser-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Example](examples/randomuser-generate-users-example.json)
-- [Example](examples/randomuser-paginated-seed-example.json)
-- [Example](examples/randomuser-csv-export-example.json)
-- [Rate Limits](rate-limits/randomuser-rate-limits.yml)
-- [Plans](plans/randomuser-plans-pricing.yml)
-- [Authentication](https://randomuser.me/documentation)
-- [Versioning](https://randomuser.me/documentation#versioning)
-- [Changelog](https://randomuser.me/changelog)
+- [User](https://apis.io/schemas/randomuser/randomuser-user/)
+- [UserResponse](https://apis.io/schemas/randomuser/randomuser-user-response/)
 
-## Common Properties
+#### JSON Structure (1)
+
+Data models expressed in JSON Structure.
+
+- [Randomuser User Structure](https://apis.io/json-structure/randomuser/randomuser-user-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Randomuser Context](https://apis.io/jsonld/randomuser/randomuser-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [RandomUser Vocabulary](https://apis.io/vocabularies/randomuser/randomuser-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Randomuser Csv Export Example](https://apis.io/examples/randomuser/randomuser-csv-export-example/)
+- [Randomuser Generate Users Example](https://apis.io/examples/randomuser/randomuser-generate-users-example/)
+- [Randomuser Paginated Seed Example](https://apis.io/examples/randomuser/randomuser-paginated-seed-example/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Random User Generator API](https://apis.io/collections/randomuser/open-randomuser/)
+- [Random User Generator Users API](https://apis.io/collections/randomuser/open-randomuser-users-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Random User Generator — jsonschema rules](https://apis.io/rules/randomuser/randomuser-jsonschema-spectral-rules/)
+- [Random User Generator API Rules](https://apis.io/rules/randomuser/randomuser-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Randomuser Domain Security](https://apis.io/security/randomuser/randomuser-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Randomuser Plans Pricing](https://apis.io/plans/randomuser/randomuser-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Randomuser Rate Limits](https://apis.io/rate-limits/randomuser/randomuser-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Randomuser Finops](https://apis.io/finops/randomuser/randomuser-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://randomuser.me)
 - [Documentation](https://randomuser.me/documentation)
-- [Changelog](https://randomuser.me/changelog)
-- [GitHub Organization](https://github.com/RandomAPI)
-- [GitHub Repository](https://github.com/RandomAPI/Randomuser.me-Node)
-- [GitHub Repository](https://github.com/RandomAPI/Offline-RandomAPI)
-- [GitHub Repository](https://github.com/RandomAPI/Randomuser.me-module)
-- [X (Twitter)](https://twitter.com/randomapi)
 - [Pricing](https://randomuser.me/#donate)
 - [Support](https://github.com/RandomAPI/Randomuser.me-Node/issues)
-- [Public APIs Listing](https://github.com/public-apis/public-apis)
-- [Spectral Rules](rules/randomuser-rules.yml)
-- [Vocabulary](vocabulary/randomuser-vocabulary.yml)
-- [Tools](https://github.com/pipeworx-io/mcp-randomuser)
-- [Tools](https://github.com/hugo-85/mcp-randomuserme)
-- [Tools](https://github.com/rycid/randomuserMCP)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
+- [Changelog](https://randomuser.me/changelog)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 26.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 27.9 |
+| Contract governance | 13.6 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 10.5 |
+
+**Agent readiness 26.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/randomuser/](https://apis.io/providers/randomuser/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Random User Generator: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/randomuser/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
